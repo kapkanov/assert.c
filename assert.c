@@ -8,11 +8,14 @@
 void assert(const int condition, const unsigned char format[], ...) {
   if (0 != condition)
     return;
-  printf("Assertion failed\n");
+
+  printf("Assertion failed. ");
   va_list args;
   va_start(args, format);
   vprintf(format, args);
   va_end(args);
+  putchar('\n');
+
   exit(1);
 }
 #endif
